@@ -156,7 +156,8 @@ def send_email(subject, html_body):
     print(f"✅ E-posta gönderildi → {TO_EMAIL}")
 
 def main():
-    youtube = build("youtube", "v3", developerKey=YOUTUBE_API_KEY)
+    youtube = build("youtube", "v3", developerKey=YOUTUBE_API_KEY,
+                cache_discovery=False)
     print("🔍 YouTube'da aranıyor…")
     videos = get_top_videos(youtube, total=5)
 
