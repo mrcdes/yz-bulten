@@ -4,7 +4,8 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from datetime import datetime, timedelta
 from googleapiclient.discovery import build
-
+import os
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = ""
 # ─── AYARLAR (GitHub Secrets'tan okunur) ──────────────────────────────────────
 YOUTUBE_API_KEY = os.environ["YOUTUBE_API_KEY"]
 GMAIL_USER      = os.environ["GMAIL_USER"]       # gönderen@gmail.com
