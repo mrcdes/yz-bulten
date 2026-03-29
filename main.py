@@ -12,12 +12,25 @@ GMAIL_PASS      = os.environ["GMAIL_PASS"]
 TO_EMAIL        = os.environ["TO_EMAIL"]
 
 QUERIES = [
-    "yapay zeka 2026",
-    "artificial intelligence news 2026",
-    "ChatGPT Gemini Claude",
-    "AI robotics latest",
-    "machine learning 2026",
+    "artificial intelligence 2026",
+    "robotics AI latest",
+    "machine learning deep learning",
+    "yapay zeka teknoloji",
+    "AI robot automation",
 ]
+   TRUSTED_CHANNELS = [
+    "MIT OpenCourseWare",
+    "Google DeepMind",
+    "OpenAI",
+    "Two Minute Papers",
+    "Lex Fridman",
+    "Andrej Karpathy",
+    "TED",
+    "Marques Brownlee",
+    "Fireship",
+    "Boston Dynamics",
+] 
+
 
 def get_youtube():
     return build(
@@ -28,13 +41,22 @@ def get_youtube():
     )
 
 def search_videos(youtube, query):
-    published_after = (datetime.utcnow() - timedelta(days=1)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    published_after = (datetime.utcnow() - timedelta(days=7)).strftime("%Y-%m-%dT%H:%M:%SZ")
     res = youtube.search().list(
         q=query, part="snippet", type="video",
-        order="date", publishedAfter=published_after,
-        maxResults=3
+        order="relevance",
+        publishedAfter=published_after,
+        maxResults=5
     ).execute()
-    return res.get("items", [])
+    
+    items = res.get("items", [])
+    # Sadece güvenilir kanallardan gelenleri filtrele
+    filtered = [
+        item for item in items
+        if any(ch.lower() in item["snippet"]["channelTitle"].lower()
+               for ch in TRUSTED_CHANNELS)
+    ]
+    return filtered if filtered else items
 
 def get_top5():
     youtube = get_youtube()
