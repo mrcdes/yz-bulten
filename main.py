@@ -12,6 +12,12 @@ GMAIL_PASS      = os.environ["GMAIL_PASS"]
 TO_EMAIL        = os.environ["TO_EMAIL"]
 
 QUERIES = [
+    "artificial intelligence 2026",
+    "robotics AI latest",
+    "machine learning deep learning",
+    "yapay zeka teknoloji",
+    "AI robot automation",
+]    
 TRUSTED_CHANNELS = [
     "MIT OpenCourseWare",
     "Google DeepMind",
@@ -23,12 +29,6 @@ TRUSTED_CHANNELS = [
     "Marques Brownlee",
     "Fireship",
     "Boston Dynamics",
-]
-    "artificial intelligence 2026",
-    "robotics AI latest",
-    "machine learning deep learning",
-    "yapay zeka teknoloji",
-    "AI robot automation",
 ]
 
 
