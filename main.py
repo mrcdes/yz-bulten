@@ -100,9 +100,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
-
-Ayrıca **`requirements.txt`** dosyasını da güncelle:
-```
-google-api-python-client==2.118.0
-httplib2
