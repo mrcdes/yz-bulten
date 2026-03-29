@@ -18,18 +18,7 @@ QUERIES = [
     "yapay zeka teknoloji",
     "AI robot automation",
 ]
-   TRUSTED_CHANNELS = [
-    "MIT OpenCourseWare",
-    "Google DeepMind",
-    "OpenAI",
-    "Two Minute Papers",
-    "Lex Fridman",
-    "Andrej Karpathy",
-    "TED",
-    "Marques Brownlee",
-    "Fireship",
-    "Boston Dynamics",
-] 
+
 
 
 def get_youtube():
