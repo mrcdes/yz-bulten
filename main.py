@@ -2,9 +2,9 @@ import os, smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from datetime import datetime, timedelta
-import httplib2
+
 from googleapiclient.discovery import build
-from googleapiclient.http import HttpRequest
+
 
 YOUTUBE_API_KEY = os.environ["YOUTUBE_API_KEY"]
 GMAIL_USER      = os.environ["GMAIL_USER"]
@@ -23,8 +23,8 @@ def get_youtube():
     return build(
         "youtube", "v3",
         developerKey=YOUTUBE_API_KEY,
-        cache_discovery=False,
-        http=httplib2.Http()
+        cache_discovery=False
+        
     )
 
 def search_videos(youtube, query):
